@@ -1,5 +1,6 @@
 # Day 5: Create a Hangman Game
 
+### Goal: Learning how to use for and while logic; adding character to a string and find whether or not a character is in a string
 
 Demo: Link (https://appbrewery.github.io/python-day7-demo/)
 
