@@ -100,6 +100,8 @@ def play_blackjack ():
 
             if score_record["Computer"] < 21:
                 choice_record["Computer"] = choice(["y", "n"])
+            else:
+                choice_record["Computer"] = "n"
 
             for player in player_list:
                 new_card = 0
