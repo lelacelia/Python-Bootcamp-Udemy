@@ -25,6 +25,7 @@ def draw_card(draw, deck):
         draw_result = choice(deck)
     return draw_result
 
+
 # Function to sum cards on hand
 def sum_hand (hand):
     player_score = sum(hand)
@@ -36,6 +37,7 @@ def sum_hand (hand):
 
     return player_score
 
+
 #Function to find out one lose:
 def game_end (scores, your_choice):
     for player in scores:
@@ -45,6 +47,7 @@ def game_end (scores, your_choice):
         return True
 
     return False
+
 
 # Function to compare results
 def compare(score_player, score_computer):
@@ -71,18 +74,11 @@ def compare(score_player, score_computer):
         else:
             return "You win 😁 "
 
-# Function to wipe data and restart
-def restart (record_1, record_2, list):
-    for player in list:
-        record_1[player] = []
-        record_2[player] = "y"
-
-play_cont = True
-cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
-
 
 def play_blackjack ():
     print(logo)
+
+    cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
     game_over = False
     hand_record = {"You": [], "Computer": []}
     score_record = {"You": 0, "Computer": 0}
@@ -96,7 +92,7 @@ def play_blackjack ():
             hand_record[player].append(new_card)
             score_record[player] = sum_hand(hand_record[player])
 
-        while len(hand_record["You"]) >= 2:
+        if len(hand_record["You"]) >= 2:
             print(f"Your cards: {hand_record["You"]}, current score: {score_record["You"]}")
             print(f"Computer's first card: {hand_record["Computer"][0]}")
 
@@ -119,19 +115,8 @@ def play_blackjack ():
 
                 print(compare(score_record["You"], score_record["Computer"]))
 
-                restart(hand_record, choice_record, player_list)
-                choice_record["You"] = input("Type 'y' to get another card, type 'n' to pass: ")
 
-                if choice_record["You"] == "y":
-                    print("\n" * 30)
-                    play_blackjack()
-                else:
-                    if score_record["Computer"] < 21:
-                        computer_choice = choice(["y", "n"]).islower()
-                    else:
-                        computer_choice = "n"
-
-
-
-play_blackjack()
+while input("Do you want to play a game of BlackJack? Type 'y' or 'n'") == "y":
+    print("\n" * 30)
+    play_blackjack()
 ```
