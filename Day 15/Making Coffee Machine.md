@@ -38,13 +38,13 @@ resources = {
 # FUNCTION: check if having enough resources to make the order
 def check_resource (required_amount, remaining_resource):
     ingredient_list = list(required_amount.keys())
-    
+
     for ingredient in ingredient_list:
         need = required_amount[ingredient]
         have = remaining_resource[ingredient]
         if need > have :
             print (f"Sorry there is not enough {ingredient}!")
-        return False
+            return False
 
     return True
 
@@ -62,7 +62,7 @@ is_on = True
 money = 0
 
 while is_on:
-    order = input("What would you like? (espresso/latte/cappuccino)? (^0^)")
+    order = input("What would you like? (espresso/latte/cappuccino)? (^0^) ")
     coin_list = ["quarter","dime","nickle", "penny"]
 
     # TO-DO: if "off", stop making coffee completely
