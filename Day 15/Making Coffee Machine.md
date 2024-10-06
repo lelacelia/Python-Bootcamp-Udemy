@@ -38,17 +38,15 @@ resources = {
 # FUNCTION: check if having enough resources to make the order
 def check_resource (required_amount, remaining_resource):
     ingredient_list = list(required_amount.keys())
-    enough_resource = True
-
+    
     for ingredient in ingredient_list:
-        if enough_resource == True:
-            need = required_amount[ingredient]
-            have = remaining_resource[ingredient]
-            if need > have :
-                print (f"Sorry there is not enough {ingredient}!")
-                enough_resource = False
+        need = required_amount[ingredient]
+        have = remaining_resource[ingredient]
+        if need > have :
+            print (f"Sorry there is not enough {ingredient}!")
+        return False
 
-    return enough_resource
+    return True
 
 # FUNCTION: calculate total money in dollar amount from coins
 def coin_converter (coin_count):
@@ -114,7 +112,5 @@ while is_on:
 
                 #TO-DO: Give order to customer:
                 print(f"Here is your {order}. Enjoy!")
-
-
 
 ```
